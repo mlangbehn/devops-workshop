@@ -1,5 +1,9 @@
 from flask import Flask
+import os
+
 app = Flask(__name__)
+
+port = os.getenv('PORT', '5000')
 
 
 @app.route("/")
@@ -8,4 +12,4 @@ def hello():
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host='0.0.0.0', port=int(port))

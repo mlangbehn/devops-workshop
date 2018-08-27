@@ -7,3 +7,4 @@ applications:
     name: HelloWorld
     host: eventingmonkey-helloworld
     disk_quota: 1024M
+    command: python app.py

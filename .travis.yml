@@ -20,4 +20,4 @@ script: "$TEST_RUN"
 
 deploy:
   provider: script
-  script: "bx app push HelloWorld -c ./app.py"
+  script: "bx app push HelloWorld"
