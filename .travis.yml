@@ -2,6 +2,7 @@
 language: python
 python: 2.7
 cache: pip
+sudo: required
 
 env:
   - TEST_RUN="./tests/test-flake8.sh"
@@ -11,6 +12,12 @@ env:
 before_install:
   - pip install -U -r test-requirements.txt
 
-install: true
+install:
+  - "./scripts/install.sh"
+  - "./scripts/ibmcloud_auth.sh"
 
 script: "$TEST_RUN"
+
+deploy:
+  provider: script
+  script: "bx app push HelloWorld"
