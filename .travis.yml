@@ -4,11 +4,6 @@ python: 2.7
 cache: pip
 sudo: required
 
-env:
-  - TEST_RUN="./tests/test-flake8.sh"
-  - TEST_RUN="./tests/test-shellcheck.sh"
-  - TEST_RUN="./tests/test-yamllint.sh"
-
 before_install:
   - pip install -U -r test-requirements.txt
 
@@ -16,7 +11,10 @@ install:
   - "./scripts/install.sh"
   - "./scripts/ibmcloud_auth.sh"
 
-script: "$TEST_RUN"
+script:
+  - "./tests/test-flake8.sh"
+  - "./tests/test-shellcheck.sh"
+  - "./tests/test-yamllint.sh"
 
 deploy:
   provider: script
